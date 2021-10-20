@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 15vmin;
+  pointer-events: none;
+}
+
+.Logo_grid {
+  min-height: 100vh;
+  align-items: center;
+}
+
