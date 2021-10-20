@@ -9,12 +9,12 @@ import './App.css';
 function App() {
   return (
     <div className="Logo_grid">
-        <img src={cloud} className="App-logo--no-anim" alt="logo" />
-        <img src={cloudSun} className="App-logo--no-anim" alt="logo" />
-        <img src={cloudRain} className="App-logo--no-anim" alt="logo" />
-        <img src={sun} className="App-logo--no-anim" alt="logo" />
-        <img src={thermometer} className="App-logo--no-anim" alt="logo" />
-        <img src={rain} className="App-logo--no-anim" alt="logo" />
+        <img src={cloud} className="App-logo" alt="logo" />
+        <img src={cloudSun} className="App-logo" alt="logo" />
+        <img src={cloudRain} className="App-logo" alt="logo" />
+        <img src={sun} className="App-logo" alt="logo" />
+        <img src={thermometer} className="App-logo" alt="logo" />
+        <img src={rain} className="App-logo" alt="logo" />
     </div>
   );
 }
