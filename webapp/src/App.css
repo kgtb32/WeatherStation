@@ -12,3 +12,15 @@
   align-items: center;
 }
 
+.temperatures {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.graph_container{
+  min-height: 20vh;
+  min-width: 100vh;
+}

@@ -1,3 +1,5 @@
+import React from 'react'
+
 import cloudSun from './logo_weather/cloud-sun.svg'
 import cloudRain from './logo_weather/cloud-rain.svg'
 import cloud from './logo_weather/cloud.svg'
