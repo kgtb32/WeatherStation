@@ -9,7 +9,7 @@ ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
       <div className="container_flex">
-        <Sidebar />
+       
         <App />
       </div>
     </React.StrictMode>
