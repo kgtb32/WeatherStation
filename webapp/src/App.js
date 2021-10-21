@@ -13,7 +13,7 @@ import meteo from './model/meteo_class.js';
 function App() {
   const [meteo, setMeteo] = useState([{humidity:"", pression:"", temperature:""}]);
   
-  const fetchMeteo=async()=>{
+  const fetchMeteo =async()=> {
     const db = getFirestore(app);
     // const meteoCollection = collection(db, 'meteo');
     // const meteoSnapshot = await getDocs(meteoCollection);
@@ -22,15 +22,21 @@ function App() {
     
     const q = query(collection(db, "meteo"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      let newState = []
       querySnapshot.forEach((doc) => {
-        //console.log("doc",doc)
-        setMeteo([...meteo,doc.data()])
-        console.log("doc.data",doc.data())
+        const value = doc.data()
+        newState.push({
+          humidity: value.humidity,
+          pression: value.pression,
+          temperature: value.temperature
+        })
       });
+      setMeteo(newState)
 
     });
   }
 
+  console.log("meteo", meteo)
   useEffect(() => {
     fetchMeteo();
   }, [])
@@ -43,7 +49,9 @@ function App() {
         <img src={sun} className="App-logo" alt="logo" />
         <img src={thermometer} className="App-logo" alt="logo" />
         <img src={rain} className="App-logo" alt="logo" />
-        <p>{meteo.map((doc)=>doc.humidity)}</p>
+        {meteo.map(e =>
+          <div className="data_label">{e.temperature}</div>
+          )}
     </div>
   );
 }
