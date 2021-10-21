@@ -1,43 +1,46 @@
 import React, { useState } from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
-import { Link } from 'react-router-dom';
 import './SideBar.css';
+import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader } from 'react-pro-sidebar';
+import 'react-pro-sidebar/dist/css/styles.css';
+import { Link } from 'react-router-dom';
+import thermometer from '../logo_weather/thermometer-50.svg'
+import raindrop from '../logo_weather/raindrop.svg'
 
 
 export default function Sidebar() {
-
-    const SidebarData = [
-        {
-          title: 'Acceuil',
-          path: '/',
-          icon: <AiIcons.AiFillHome />,
-          cName: 'nav-text'
-        },
-        {
-          title: 'Paramètres',
-          path: '/settings',
-          icon: <IoIcons.IoMdSettings />,
-          cName: 'nav-text'
-        },
-      ];
-    
     return (
-        <nav className='nav-menu'>
-            <ul className='nav-menu-items'>
-                {SidebarData.map((item, index) => {
-                    return (
-                        <li key={index} className={item.cName}>
-                            <Link to={item.path}>
-                                {item.icon}
-                                <span>{item.title}</span>
-                            </Link>
-                        </li>
-                    );
-                })}
-            </ul>
-        </nav>
-
-      );
-    }
+        <div className="sidebar">
+            <ProSidebar>
+                <SidebarHeader>
+                    {<>
+                        <span> Weather Webapp</span>
+                    </>
+                    }
+                </SidebarHeader>
+                <Menu iconShape="square">
+                    <MenuItem>
+                        Acceuil
+                        <Link to="/" />
+                    </MenuItem>
+                    <SubMenu title="Options">
+                        <MenuItem
+                        icon={<img src={thermometer} className="logo_sidebar" alt="logo" />}>
+                            Températures
+                            <Link to="/temperatures" />
+                        </MenuItem>
+                        <MenuItem 
+                        icon={<img src={raindrop} className="logo_sidebar" alt="logo" />}>
+                            Taux d'humidité
+                        <Link to="/humidity" />
+                        </MenuItem>
+                    </SubMenu>
+                    <MenuItem icon={<IoIcons.IoMdSettings />}>
+                        Paramètres
+                        <Link to="/settings" />
+                    </MenuItem>
+                </Menu>
+            </ProSidebar>
+        </div>
+    )
+}
