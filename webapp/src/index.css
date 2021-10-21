@@ -14,4 +14,5 @@ code {
 
 .container_flex{
   display: flex;
+  min-height: 100vh;
 }
