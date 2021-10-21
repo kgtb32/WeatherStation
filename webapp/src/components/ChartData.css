@@ -1,0 +1,5 @@
+.graph_container{
+    height: 20px;
+    min-width: 100vh;
+    display: flex;
+  }
