@@ -1,9 +1,6 @@
-import React,{useEffect, useState} from 'react';
-import { getFirestore, collection, query, where, onSnapshot } from 'firebase/firestore';
+import React,{useEffect} from 'react';
 
-import meteo from './model/meteo_class.js';
-import app from './config/firebase.js';
-
+import {DataContext} from './context'
 
 import cloudSun from './logo_weather/cloud-sun.svg'
 import cloudRain from './logo_weather/cloud-rain.svg'
@@ -11,37 +8,15 @@ import cloud from './logo_weather/cloud.svg'
 import sun from './logo_weather/sun.svg'
 import thermometer from './logo_weather/thermometer-50.svg'
 import rain from './logo_weather/rain.svg'
-import './App.css';
+import './App.css';;
 
 function App() {
-  const [meteo, setMeteo] = useState([{humidity:"", pression:"", temperature:""}]);
-  
-  const fetchMeteo =async()=> {
-    const db = getFirestore(app);
-    // const meteoCollection = collection(db, 'meteo');
-    // const meteoSnapshot = await getDocs(meteoCollection);
-    // const meteoList = meteoSnapshot.docs.map(doc => doc.data());
-    // console.log(meteoList.map(e => e))
-    
-    const q = query(collection(db, "meteo"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let newState = []
-      querySnapshot.forEach((doc) => {
-        const value = doc.data()
-        newState.push({
-          humidity: value.humidity,
-          pression: value.pression,
-          temperature: value.temperature
-        })
-      });
-      setMeteo(newState)
+  const {
+    fetchData, 
+    dataWeather} = DataContext()
 
-    });
-  }
-
-  console.log("meteo", meteo)
   useEffect(() => {
-    fetchMeteo();
+    fetchData();
   }, [])
 
   return (
@@ -52,8 +27,12 @@ function App() {
         <img src={sun} className="App-logo" alt="logo" />
         <img src={thermometer} className="App-logo" alt="logo" />
         <img src={rain} className="App-logo" alt="logo" />
-        {meteo.map(e =>
-          <div className="data_label">{e.temperature}</div>
+        {dataWeather.map(e =>
+        <div className="container"> 
+          <div className="data_label">Temp : {e.temperature}</div>
+          {/* <div className="data_label">Pression : {e.pression}</div>
+          <div className="data_label">Humidité : {e.humidity}</div> */}
+        </div>
           )}
     </div>
   );
