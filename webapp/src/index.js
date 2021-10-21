@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import Sidebar from './components/SideBar';
+import {ContextProvider} from './context'
 
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
-      <div className="container_flex">
-       
-        <App />
-      </div>
+      <ContextProvider>
+        <div className="container_flex">
+        
+          <App />
+        </div>
+      </ContextProvider>
     </React.StrictMode>
     </BrowserRouter>,
   document.getElementById('root')
