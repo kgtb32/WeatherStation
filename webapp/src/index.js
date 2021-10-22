@@ -11,6 +11,8 @@ import {ContextProvider} from './context'
 
 import './index.css';
 
+import './i18n';
+
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
