@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Sidebar from './components/SideBar/SideBar';
 import temperatures from './pages/Temperatures'
-import App from './App';
+import Home from './pages/Home'
 
 import {ContextProvider} from './context'
 
@@ -20,7 +20,7 @@ ReactDOM.render(
         <div className="container_flex">
           <Sidebar />
           <Switch>
-            <Route path="/" component={App} exact/>
+            <Route path="/" component={Home} exact/>
             <Route path="/temperatures" component={temperatures} exact/>
           </Switch>
         </div>
