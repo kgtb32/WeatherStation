@@ -11,7 +11,7 @@ export function DataContext() {
   }
 
 export const ContextProvider = (props) =>{
-    const [dataWeather, setDataWeather] = useState([{humidity:"", pression:"", temperature:""}]);
+    const [dataWeather, setDataWeather] = useState([{humidity:"", pressure:"", temperature:""}]);
   
     const fetchData = async() => {
     const db = getFirestore(app);
@@ -23,7 +23,7 @@ export const ContextProvider = (props) =>{
         const value = doc.data()
         newState.push({
           humidity: value.humidity,
-          pression: value.pression,
+          pressure: value.pressure,
           temperature: value.temperature
         })
       });
