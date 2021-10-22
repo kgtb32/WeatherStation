@@ -4,8 +4,8 @@ import './SideBar.css';
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
 import { Link } from 'react-router-dom';
-import thermometer from '../logo_weather/thermometer-50.svg'
-import raindrop from '../logo_weather/raindrop.svg'
+import thermometer from '../../logo_weather/thermometer-50.svg'
+import raindrop from '../../logo_weather/raindrop.svg'
 
 
 export default function Sidebar() {
