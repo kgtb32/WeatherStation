@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -20,98 +20,103 @@ import { RiTempColdFill } from "react-icons/ri";
 import "react-pro-sidebar/dist/css/styles.css";
 
 export default function Sidebar() {
+	const [animationEnabled] = useState(false);
+
 	return (
 		<div className="sidebar">
-			<Particles
-				id="tsparticles"
-				style={{
-					position: "absolute",
-					height: "100vh",
-				}}
-				options={{
-					background: {
-						color: {
-							value: "#1d1d1d",
+			{animationEnabled && (
+				<Particles
+					id="tsparticles"
+					style={{
+						position: "absolute",
+						height: "100vh",
+					}}
+					options={{
+						background: {
+							color: {
+								value: "#1d1d1d",
+							},
 						},
-					},
-					fpsLimit: 60,
-					interactivity: {
-						detectsOn: "canvas",
-						events: {
-							onClick: {
+						fpsLimit: 60,
+						interactivity: {
+							detectsOn: "canvas",
+							events: {
+								onClick: {
+									enable: true,
+									mode: "push",
+								},
+								onHover: {
+									enable: true,
+									mode: "repulse",
+								},
+								resize: true,
+							},
+							modes: {
+								bubble: {
+									distance: 400,
+									duration: 2,
+									opacity: 0.8,
+									size: 40,
+								},
+								push: {
+									quantity: 4,
+								},
+								repulse: {
+									distance: 200,
+									duration: 0.4,
+								},
+							},
+						},
+						particles: {
+							color: {
+								value: "#ffffff",
+							},
+							links: {
+								color: "#ffffff",
+								distance: 150,
 								enable: true,
-								mode: "push",
+								opacity: 0.5,
+								width: 1,
 							},
-							onHover: {
+							collisions: {
 								enable: true,
-								mode: "repulse",
 							},
-							resize: true,
-						},
-						modes: {
-							bubble: {
-								distance: 400,
-								duration: 2,
-								opacity: 0.8,
-								size: 40,
-							},
-							push: {
-								quantity: 4,
-							},
-							repulse: {
-								distance: 200,
-								duration: 0.4,
-							},
-						},
-					},
-					particles: {
-						color: {
-							value: "#ffffff",
-						},
-						links: {
-							color: "#ffffff",
-							distance: 150,
-							enable: true,
-							opacity: 0.5,
-							width: 1,
-						},
-						collisions: {
-							enable: true,
-						},
-						move: {
-							direction: "none",
-							enable: true,
-							outMode: "bounce",
-							random: false,
-							speed: 6,
-							straight: false,
-						},
-						number: {
-							density: {
+							move: {
+								direction: "none",
 								enable: true,
-								value_area: 800,
+								outMode: "bounce",
+								random: false,
+								speed: 6,
+								straight: false,
 							},
-							value: 80,
+							number: {
+								density: {
+									enable: true,
+									value_area: 800,
+								},
+								value: 80,
+							},
+							opacity: {
+								value: 0.5,
+							},
+							shape: {
+								type: "circle",
+							},
+							size: {
+								random: true,
+								value: 5,
+							},
 						},
-						opacity: {
-							value: 0.5,
-						},
-						shape: {
-							type: "circle",
-						},
-						size: {
-							random: true,
-							value: 5,
-						},
-					},
-					detectRetina: true,
-				}}
-			/>
+						detectRetina: true,
+					}}
+				/>
+			)}
 			<JoliProSidebar
 				rtl={false}
 				collapsed={false}
 				toggled={false}
 				breakPoint="md"
+				active={animationEnabled}
 				style={{
 					backgroundColor: "transparent",
 				}}
@@ -156,7 +161,12 @@ export default function Sidebar() {
 
 const JoliProSidebar = styled(ProSidebar)`
 	&.pro-sidebar > .pro-sidebar-inner {
-		background: transparent;
+		${({ active }) =>
+			active
+				? `
+      background: transparent
+  `
+				: `background: #1d1d1d`}
 	}
 
 	& * .pro-inner-item {
