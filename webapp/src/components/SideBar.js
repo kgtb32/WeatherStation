@@ -34,6 +34,11 @@ export default function Sidebar() {
                             Taux d'humidité
                         <Link to="/humidity" />
                         </MenuItem>
+                        <MenuItem 
+                        icon={<img src={raindrop} className="logo_sidebar" alt="logo" />}>
+                            Pression Atmosphérique
+                        <Link to="/pressure" />
+                        </MenuItem>
                     </SubMenu>
                     <MenuItem icon={<IoIcons.IoMdSettings />}>
                         Paramètres

@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 15vmin;
+  height: 6vmin;
   pointer-events: none;
 }
 
@@ -18,4 +18,11 @@
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+}
+
+.topbar_data_container{
+  display: flex;
+  margin-left: 22px;
+  border: solid black;
+  height: 7vmin;
 }
