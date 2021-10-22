@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Sidebar from './components/SideBar';
+import Sidebar from './components/SideBar/SideBar';
 import temperatures from './pages/Temperatures'
 import App from './App';
 

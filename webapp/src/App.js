@@ -7,7 +7,7 @@ import sun from './logo_weather/sun.svg'
 import thermometer from './logo_weather/thermometer-50.svg'
 import rain from './logo_weather/rain.svg'
 import './App.css'
-import TopBar from './components/TopBar';
+import TopBar from './components/TopBar/TopBar';
 
 function App() {
   const {

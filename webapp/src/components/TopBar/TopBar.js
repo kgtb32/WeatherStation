@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import React,{useEffect, useState} from 'react';
-import {DataContext} from '../context'
-import thermometer from '../logo_weather/thermometer-50.svg'
-import wet from '../logo_weather/wet.svg'
-import tornado from '../logo_weather/tornado.svg'
+import {DataContext} from '../../context'
+import thermometer from '../../logo_weather/thermometer-50.svg'
+import wet from '../../logo_weather/wet.svg'
+import tornado from '../../logo_weather/tornado.svg'
 
 
 
