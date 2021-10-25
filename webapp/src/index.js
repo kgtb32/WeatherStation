@@ -17,26 +17,34 @@ import "./i18n";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-ReactDOM.render(
-	<BrowserRouter>
-		<React.StrictMode>
-			<ContextProvider>
-				<div className="container_flex" style={{ height: "100vh" }}>
-					<Sidebar />
-					<div
-						style={{ height: "100vh", background: "white", zIndex: 1024 }}
-						className="overflow-auto w-100"
-					>
-						<Switch>
-							<Route path="/" component={Home} exact />
-							<Route path="/temperatures" component={temperatures} exact />
-							<Route path="/pressure" component={Pressure} exact />
-							<Route path="/humidity" component={Humidity} exact />
-						</Switch>
+const Router = () => {
+	return (
+		<BrowserRouter>
+			<React.StrictMode>
+				<ContextProvider>
+					<div className="container_flex" style={{ height: "100vh" }}>
+						<Sidebar />
+						<div
+							style={{ height: "100vh", background: "white", zIndex: 1024 }}
+							className="overflow-auto w-100"
+						>
+							<Switch>
+								<Route path="/" component={Home} exact />
+								<Route path="/temperatures" component={temperatures} exact />
+								<Route path="/humidity" component={Humidity} exact />
+								<Route path="/pressure" component={Pressure} exact />
+							</Switch>
+						</div>
 					</div>
-				</div>
-			</ContextProvider>
-		</React.StrictMode>
-	</BrowserRouter>,
+				</ContextProvider>
+			</React.StrictMode>
+		</BrowserRouter>
+	);
+};
+
+ReactDOM.render(
+	<>
+		<Router />
+	</>,
 	document.getElementById("root")
 );
