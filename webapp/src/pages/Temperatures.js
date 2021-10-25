@@ -19,7 +19,7 @@ export default function Temperatures() {
         if (dataWeather) {
             let prevState = [...dataTemperature]
             dataWeather.map((e,i)=>
-                    prevState.push([i, e.temperature])
+                    prevState.push([e.date, e.temperature])
                 )
             setDataTemperature(prevState)
         }

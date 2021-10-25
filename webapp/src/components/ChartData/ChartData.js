@@ -5,12 +5,11 @@ import { Line } from 'react-chartjs-2';
 export default function ChartData(data) {
   
   const displayData = {
-      labels: data.data.data.map(e => e[0]),
-    // labels: ['5', '4', '3', '4', '5', '6'],
+    labels: data.data.data.map(e => e[0]), // date
     datasets: [
       {
         label: data.data.label,
-        data: data.data.data.map(e => e[1]),
+        data: data.data.data.map(e => e[1]), // temperatures
         fill: false,
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgba(255, 99, 132, 0.2)',
