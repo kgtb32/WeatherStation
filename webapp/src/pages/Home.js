@@ -11,7 +11,6 @@ function Home() {
     return (
         <div className="w-100">
             <TopBar />
-            <h1>Weather Station</h1>
             <p onClick={() => {
                 i18n.changeLanguage('en')
             }}>{t('langName')}</p>
