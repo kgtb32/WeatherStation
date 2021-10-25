@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 import Particles from "react-tsparticles";
 import {
@@ -21,6 +21,12 @@ import "react-pro-sidebar/dist/css/styles.css";
 
 function Sidebar({ sidebarVisible, setSidebarVisible }) {
 	const [animationEnabled] = useState(false);
+
+	const location = useLocation().pathname;
+
+	useEffect(() => {
+		setSidebarVisible(false);
+	}, [location]);
 
 	return (
 		<div className="sidebar">
