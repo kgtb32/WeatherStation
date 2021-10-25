@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Sidebar from "./components/SideBar/SideBar";
 import temperatures from "./pages/Temperatures";
+import Pressure from "./pages/Pressure";
+import Humidity from "./pages/Humidity";
 import Home from "./pages/Home";
 
 import { ContextProvider } from "./context";
@@ -28,6 +30,8 @@ ReactDOM.render(
 						<Switch>
 							<Route path="/" component={Home} exact />
 							<Route path="/temperatures" component={temperatures} exact />
+							<Route path="/pressure" component={Pressure} exact />
+							<Route path="/humidity" component={Humidity} exact />
 						</Switch>
 					</div>
 				</div>

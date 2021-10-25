@@ -3,38 +3,38 @@ import React, {useEffect, useState} from "react";
 import ChartData from "../components/ChartData/ChartData";
 import { DataContext } from "../context";
 
-export default function Temperatures() {
+export default function Pressure() {
 
     const {
         fetchData, 
         dataWeather
     } = DataContext()
     
-    const [dataTemperature, setDataTemperature] = useState([]);
+    const [dataPressure, setDataPressure] = useState([]);
 
     useEffect(() => {
         fetchData()
     }, [])
 
     useEffect(() => {
-        if (dataWeather && dataTemperature.length === 0) {
-            let prevState = [...dataTemperature]
+        if (dataWeather && dataPressure.length === 0) {
+            let prevState = [...dataPressure]
             dataWeather.map((e,i)=>
-                    prevState.push([e.date, e.temperature])
+                    prevState.push([e.date, e.pressure])
                 )
-            setDataTemperature(prevState)
+            setDataPressure(prevState)
         }
     }, [dataWeather])
     
     const data = 
     {
-        label: 'Temperature',
-        data: dataTemperature
+        label: 'Pression atomosphérique',
+        data: dataPressure
     }
 
     return(
         <>
-                temperatures
+                Pression atomosphérique
                 <ChartData data={data}/>
 
         </>

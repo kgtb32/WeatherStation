@@ -3,38 +3,38 @@ import React, {useEffect, useState} from "react";
 import ChartData from "../components/ChartData/ChartData";
 import { DataContext } from "../context";
 
-export default function Temperatures() {
+export default function Humidity() {
 
     const {
         fetchData, 
         dataWeather
     } = DataContext()
     
-    const [dataTemperature, setDataTemperature] = useState([]);
+    const [dataHumidity, setDataHumidity] = useState([]);
 
     useEffect(() => {
         fetchData()
     }, [])
 
     useEffect(() => {
-        if (dataWeather && dataTemperature.length === 0) {
-            let prevState = [...dataTemperature]
+        if (dataWeather && dataHumidity.length === 0) {
+            let prevState = [...dataHumidity]
             dataWeather.map((e,i)=>
-                    prevState.push([e.date, e.temperature])
+                    prevState.push([e.date, e.humidity])
                 )
-            setDataTemperature(prevState)
+            setDataHumidity(prevState)
         }
     }, [dataWeather])
     
     const data = 
     {
-        label: 'Temperature',
-        data: dataTemperature
+        label: 'Humidité',
+        data: dataHumidity
     }
 
     return(
         <>
-                temperatures
+                Humidité
                 <ChartData data={data}/>
 
         </>
