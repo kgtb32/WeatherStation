@@ -29,7 +29,6 @@ export const ContextProvider = (props) =>{
         })
       });
       setDataWeather(newState)
-
     });
   }
 

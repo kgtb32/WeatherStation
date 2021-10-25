@@ -11,26 +11,29 @@ export default function Temperatures() {
     } = DataContext()
     
     const [dataTemperature, setDataTemperature] = useState([]);
+    console.log("🚀 ~ dataTemperature", dataTemperature)
+
     useEffect(() => {
         fetchData()
     }, [])
 
     useEffect(() => {
-        if (dataWeather) {
+        if (dataWeather && dataTemperature.length === 0) {
             let prevState = [...dataTemperature]
             dataWeather.map((e,i)=>
                     prevState.push([e.date, e.temperature])
                 )
+                console.log("here", dataTemperature)
             setDataTemperature(prevState)
         }
     }, [dataWeather])
     
     const data = 
-        {
-            label: 'Temperature',
-            data: dataTemperature
-        }
-    
+    {
+        label: 'Temperature',
+        data: dataTemperature
+    }
+
     return(
         <>
                 temperatures
