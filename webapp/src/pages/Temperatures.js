@@ -1,10 +1,42 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+
+import ChartData from "../components/ChartData/ChartData";
+import { DataContext } from "../context";
 
 export default function Temperatures() {
+
+    const {
+        fetchData, 
+        dataWeather
+    } = DataContext()
+    
+    const [dataTemperature, setDataTemperature] = useState([]);
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    useEffect(() => {
+        if (dataWeather) {
+            let prevState = [...dataTemperature]
+            dataWeather.map((e,i)=>
+                    prevState.push([i, e.temperature])
+                )
+            setDataTemperature(prevState)
+        }
+    }, [dataWeather])
+    
+    const data = 
+        {
+            label: 'Temperature',
+            data: dataTemperature
+        }
+    
     return(
-        <div className="temperatures">
-            temperatures
-        </div>
+        <>
+                temperatures
+                <ChartData data={data}/>
+
+        </>
     )
 
 }

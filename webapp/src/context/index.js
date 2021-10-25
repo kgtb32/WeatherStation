@@ -1,8 +1,7 @@
 import React , { createContext, useState, useContext } from 'react';
 import { getFirestore, collection, query, where, onSnapshot } from 'firebase/firestore';
 import app from '../config/firebase.js';
-
-
+import dayjs from 'dayjs'
 
 export const context = createContext()
 
@@ -11,7 +10,7 @@ export function DataContext() {
   }
 
 export const ContextProvider = (props) =>{
-    const [dataWeather, setDataWeather] = useState([{humidity:"", pressure:"", temperature:""}]);
+    const [dataWeather, setDataWeather] = useState([{humidity:"", pressure:"", temperature:0, date:""}]);
   
     const fetchData = async() => {
     const db = getFirestore(app);
@@ -21,10 +20,12 @@ export const ContextProvider = (props) =>{
       let newState = []
       querySnapshot.forEach((doc) => {
         const value = doc.data()
+        const convertDate = dayjs(value.dateEpoch * 1000).$d
         newState.push({
           humidity: value.humidity,
           pressure: value.pressure,
-          temperature: value.temperature
+          temperature: value.temperature,
+          date: convertDate
         })
       });
       setDataWeather(newState)
