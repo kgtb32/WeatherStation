@@ -166,11 +166,11 @@ const JoliProSidebar = styled(ProSidebar)`
 				? `
       background: transparent
   `
-				: `background: #1d1d1d`}
+				: `background: #273c75`}
 	}
 
 	& * .pro-inner-item {
-		background: #2b2b2b;
+		background: #192a56;
 		border-radius: 0px 8px 8px 0px;
 		margin-top: 4px;
 		width: 95%;
@@ -180,5 +180,13 @@ const JoliProSidebar = styled(ProSidebar)`
 		width: 95%;
 		border-radius: 0px 8px 8px 0px;
 		margin-top: 2px;
+	}
+
+	& * .pro-inner-item > .pro-icon-wrapper { 
+		background-color: #273c75 !important;
+	}
+
+	& * .pro-inner-list-item { 
+		background-color: #192a56 !important;
 	}
 `;
