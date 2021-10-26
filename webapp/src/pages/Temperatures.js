@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
-
 import ChartData from "../components/ChartData/ChartData";
 import { DataContext } from "../context";
+import CsvExport from "../components/DataExport/CsvExport";
 
 export default function Temperatures() {
 
@@ -36,6 +36,8 @@ export default function Temperatures() {
         <>
                 temperatures
                 <ChartData data={data}/>
+
+                <CsvExport data={data}/>
 
         </>
     )

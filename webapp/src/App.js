@@ -19,21 +19,6 @@ function App() {
 
     <TopBar />
     
-    // <div className="Logo_grid">
-    //     <img src={cloud} className="App-logo" alt="logo" />
-    //     <img src={cloudSun} className="App-logo" alt="logo" />
-    //     <img src={cloudRain} className="App-logo" alt="logo" />
-    //     <img src={sun} className="App-logo" alt="logo" />
-    //     <img src={thermometer} className="App-logo" alt="logo" />
-    //     <img src={rain} className="App-logo" alt="logo" />
-    //     {dataWeather.map(e =>
-    //     <div className="container"> 
-    //       <div className="data_label">Temp : {e.temperature}</div>
-    //       {/* <div className="data_label">Pression : {e.pression}</div>
-    //       <div className="data_label">Humidité : {e.humidity}</div> */}
-    //     </div>
-    //       )}
-    // </div>
   );
 }
 
