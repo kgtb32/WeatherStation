@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
-
 import ChartData from "../components/ChartData/ChartData";
 import { DataContext } from "../context";
+import CsvExport from "../components/DataExport/CsvExport";
 
 export default function Humidity() {
 
@@ -36,6 +36,7 @@ export default function Humidity() {
         <>
                 Humidité
                 <ChartData data={data}/>
+                <CsvExport data={data}/>
 
         </>
     )

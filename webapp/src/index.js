@@ -1,22 +1,15 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-
 import { BrowserRouter, Route, Switch, useLocation } from "react-router-dom";
-
 import Sidebar from "./components/SideBar/SideBar";
 import TopBar from "./components/TopBar/TopBar";
-
 import temperatures from "./pages/Temperatures";
 import Pressure from "./pages/Pressure";
 import Humidity from "./pages/Humidity";
 import Home from "./pages/Home";
-
 import { ContextProvider } from "./context";
-
 import "./index.css";
-
 import "./i18n";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const breakPoint = 720;

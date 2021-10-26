@@ -20,6 +20,7 @@ export function DataContext() {
 
 export const ContextProvider = (props) => {
   const [dataWeather, setDataWeather] = useState([]);
+  const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour:'numeric', minute: 'numeric', second:'numeric'};
 
   const fetchData = async () => {
     const db = getFirestore(app);
@@ -34,11 +35,13 @@ export const ContextProvider = (props) => {
       querySnapshot.forEach((doc) => {
         const value = doc.data();
         const convertDate = dayjs(value.dateEpoch * 1000);
+        const stringDate = convertDate.$d
+        const frenchDate = stringDate.toLocaleDateString('fr-FR', options)
         newState.push({
           humidity: value.humidity,
           pressure: value.pressure,
           temperature: value.temperature,
-          date: convertDate,
+          date: frenchDate,
         });
       });
       setDataWeather(newState);
