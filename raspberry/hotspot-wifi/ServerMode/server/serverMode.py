@@ -17,4 +17,15 @@ def basic_settings_set():
     else:
         write_file("/tmp/config.json", json.dumps({"location": loc, "interval": send_interval}))
         return jsonify(success=True)
+
+@app.route('/template/upload_credentials')
+def template_upload_credentials():
+    return render_template('template_upload_credentials.html')
+
+@app.route('/cred/set', methods= ['POST'])
+def cred_set():
+    file = request.files['file']
+    file.save("/tmp/credentials.json")
+    return jsonify(success=True)
+    
     
