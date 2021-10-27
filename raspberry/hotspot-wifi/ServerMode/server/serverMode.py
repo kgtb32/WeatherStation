@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
-from utils.utils import write_file
+from utils.utils import write_file, convert_nmcli_to_obj
 import json
+import subprocess
 
 app = Flask(__name__)
 
@@ -28,4 +29,7 @@ def cred_set():
     file.save("/tmp/credentials.json")
     return jsonify(success=True)
     
-    
+@app.route('/wifi/list', methods=['GET'])
+def wifi_list():
+    result = subprocess.run("nmcli -c no --fields SSID,SIGNAL,SECURITY, --mode multiline dev wifi list", shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8').split("\n")
+    return jsonify(convert_nmcli_to_obj(result))
