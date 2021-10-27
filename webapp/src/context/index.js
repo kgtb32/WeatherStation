@@ -22,12 +22,12 @@ export const ContextProvider = (props) => {
   const [dataWeather, setDataWeather] = useState([]);
   const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour:'numeric', minute: 'numeric', second:'numeric'};
 
-  const fetchData = async () => {
+  const fetchData = async (dateRange) => {
     const db = getFirestore(app);
-
     const q = query(
       collection(db, "meteo"),
       where("shouldValBeUsed", "==", true),
+      where("dateEpoch", ">=", dateRange + ""),
       orderBy("dateEpoch")
     );
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
