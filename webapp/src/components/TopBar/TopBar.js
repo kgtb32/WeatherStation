@@ -14,23 +14,23 @@ import wet from "../../logo_weather/wet.svg";
 import tornado from "../../logo_weather/tornado.svg";
 
 function TopBar({ updateSidebarVisibility }) {
-	const { fetchData, dataWeather } = DataContext();
+	const { fetchDataRangeDate, dataWeather, fetchDataRealTime, realTimeData} = DataContext();
 
-	const [temperature, setTemprature] = useState();
+	const [temperature, setTemperature] = useState();
 	const [pressure, setPressure] = useState();
 	const [humidity, setHumidity] = useState();
 
 	useEffect(() => {
-		fetchData();
+		fetchDataRealTime()
 	}, []);
 
 	useEffect(() => {
-		if (dataWeather.length > 0) {
-			setTemprature(Number(dataWeather[dataWeather.length - 1].temperature));
-			setPressure(Number(dataWeather[dataWeather.length - 1].pressure));
-			setHumidity(Number(dataWeather[dataWeather.length - 1].humidity));
+		if (realTimeData) {
+			setTemperature(Number(realTimeData.temperature));
+			setHumidity(Number(realTimeData.humidity));
+			setPressure(Number(realTimeData.pressure));
 		}
-	}, [dataWeather]);
+	}, [realTimeData]);
 	//#687eb6
 
 	return (

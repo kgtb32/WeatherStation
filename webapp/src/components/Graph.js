@@ -8,7 +8,7 @@ import dayjs from "dayjs";
 export default function Graph({dataName}) {
 
     const {
-        fetchData, 
+        fetchDataRangeDate, 
         dataWeather
     } = DataContext()
     
@@ -23,7 +23,7 @@ export default function Graph({dataName}) {
     }
 
     useEffect(() => {
-        fetchData(datePicked)
+        fetchDataRangeDate(datePicked)
     }, [datePicked])
 
     useEffect(() => {
