@@ -11,7 +11,7 @@ import TopBar from './components/TopBar/TopBar';
 
 function App() {
   const {
-    fetchData,
+    fetchDataRangeDate,
     dataWeather} = DataContext()
 
 

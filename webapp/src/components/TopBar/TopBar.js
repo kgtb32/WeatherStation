@@ -1,37 +1,31 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-
 import { Navbar, Button } from "react-bootstrap";
-
 import { DataContext } from "../../context";
-
 import { AiOutlineMenu } from "react-icons/ai";
-
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import thermometer from "../../logo_weather/thermometer-50.svg";
 import wet from "../../logo_weather/wet.svg";
 import tornado from "../../logo_weather/tornado.svg";
 
 function TopBar({ updateSidebarVisibility }) {
-	const { fetchData, dataWeather } = DataContext();
+	const {fetchDataRealTime, realTimeData} = DataContext();
 
-	const [temperature, setTemprature] = useState();
+	const [temperature, setTemperature] = useState();
 	const [pressure, setPressure] = useState();
 	const [humidity, setHumidity] = useState();
 
 	useEffect(() => {
-		fetchData();
+		fetchDataRealTime()
 	}, []);
 
 	useEffect(() => {
-		if (dataWeather.length > 0) {
-			setTemprature(Number(dataWeather[dataWeather.length - 1].temperature));
-			setPressure(Number(dataWeather[dataWeather.length - 1].pressure));
-			setHumidity(Number(dataWeather[dataWeather.length - 1].humidity));
+		if (realTimeData) {
+			setTemperature(Number(realTimeData.temperature));
+			setHumidity(Number(realTimeData.humidity));
+			setPressure(Number(realTimeData.pressure));
 		}
-	}, [dataWeather]);
-	//#687eb6
+	}, [realTimeData]);
 
 	return (
 		<Navbar
@@ -81,6 +75,9 @@ function TopBar({ updateSidebarVisibility }) {
 					/>
 					{pressure ? pressure.toFixed(2) : ""}
 				</span>
+				<div className="info_lastupdate">
+					dernière mise à jour le {realTimeData.date}
+				</div>
 			</Navbar.Brand>
 		</Navbar>
 	);

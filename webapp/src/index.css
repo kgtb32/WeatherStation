@@ -16,3 +16,9 @@ code {
   display: flex;
   min-height: 100vh;
 }
+
+.info_lastupdate{
+  color: white;
+  font-size: 13px;
+  text-align: center;
+}
