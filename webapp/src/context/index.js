@@ -60,7 +60,6 @@ export const ContextProvider = (props) => {
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const value = doc.data();
-        console.log("🚀 ~ value", value)
         const convertDate = dayjs(value.dateEpoch * 1000);
         const stringDate = convertDate.$d
         const frenchDate = stringDate.toLocaleDateString('fr-FR', optionsDate)
