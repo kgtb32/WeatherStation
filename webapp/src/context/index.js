@@ -7,6 +7,7 @@ import {
   where,
   onSnapshot,
   orderBy,
+  limit
 } from "firebase/firestore";
 
 import app from "../config/firebase.js";
@@ -20,9 +21,10 @@ export function DataContext() {
 
 export const ContextProvider = (props) => {
   const [dataWeather, setDataWeather] = useState([]);
-  const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour:'numeric', minute: 'numeric', second:'numeric'};
+  const [realTimeData, setRealTimeData] = useState({});
+  const optionsDate = { year: 'numeric', month: 'numeric', day: 'numeric', hour:'numeric', minute: 'numeric', second:'numeric'};
 
-  const fetchData = async (dateRange) => {
+  const fetchDataRangeDate = async (dateRange) => {
     const db = getFirestore(app);
     const q = query(
       collection(db, "meteo"),
@@ -36,7 +38,7 @@ export const ContextProvider = (props) => {
         const value = doc.data();
         const convertDate = dayjs(value.dateEpoch * 1000);
         const stringDate = convertDate.$d
-        const frenchDate = stringDate.toLocaleDateString('fr-FR', options)
+        const frenchDate = stringDate.toLocaleDateString('fr-FR', optionsDate)
         newState.push({
           humidity: value.humidity,
           pressure: value.pressure,
@@ -48,11 +50,37 @@ export const ContextProvider = (props) => {
     });
   };
 
+  const fetchDataRealTime = async () => {
+    const db = getFirestore(app);
+    const q = query(
+      collection(db, "meteo"),
+      orderBy("dateEpoch", "desc"),
+      limit(1)
+    );
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const value = doc.data();
+        console.log("🚀 ~ value", value)
+        const convertDate = dayjs(value.dateEpoch * 1000);
+        const stringDate = convertDate.$d
+        const frenchDate = stringDate.toLocaleDateString('fr-FR', optionsDate)
+        setRealTimeData({
+          humidity: value.humidity,
+          pressure: value.pressure,
+          temperature: value.temperature,
+          date: frenchDate,
+        })
+      });
+    });
+  };
+
   return (
     <context.Provider
       value={{
         dataWeather,
-        fetchData,
+        fetchDataRangeDate,
+        fetchDataRealTime,
+        realTimeData
       }}
     >
       {props.children}
