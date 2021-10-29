@@ -1,22 +1,20 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+import HomeGraph from "../components/HomeGraph";
+import { Col, Container, Row } from "react-bootstrap";
 
-import i18n from "../i18n";
-
-function Home() {
-	const { t } = useTranslation();
+export default function Home() {
 
 	return (
-		<div className="w-100">
-			<p
-				onClick={() => {
-					i18n.changeLanguage("en");
-				}}
-			>
-				{t("langName")}
-			</p>
-		</div>
+		<>
+			<Container>
+				<Row>
+					<Col md={6}><HomeGraph dataName="temperature"/></Col>
+    				<Col md={6}><HomeGraph  dataName="pressure"/></Col>
+  				</Row>
+  				<Row>
+    				<Col md={{ span: 6, offset: 3 }}><HomeGraph  dataName="humidity"/></Col>
+  				</Row>
+			</Container>
+		</>
 	);
 }
-
-export default Home;

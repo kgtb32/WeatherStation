@@ -15,6 +15,7 @@ export default function Graph({dataName}) {
     const [dataTemperature, setDataTemperature] = useState([]);
     const [buttonDate, setButtonDate] = useState("Dernières 24 heures");
     const [datePicked, setDatePicked] = useState(dayjs().subtract(1, 'day').unix());
+    const [color, setColor] = useState();
 
     const handleChangeDatePick = (datePicked, text) => {
         const dateToRequest = dayjs().subtract(1, datePicked).unix()
@@ -23,7 +24,7 @@ export default function Graph({dataName}) {
     }
 
     useEffect(() => {
-        fetchDataRangeDate(datePicked)
+        fetchDataRangeDate(datePicked, true)
     }, [datePicked])
 
     useEffect(() => {
@@ -33,16 +34,19 @@ export default function Graph({dataName}) {
                 dataWeather.map((e,i)=>
                     prevState.push([e.date, e.temperature])
                 )
+                setColor('rgb(255, 51, 51)')
             }
             if (dataName === 'humidity') {
                 dataWeather.map((e,i)=>
                     prevState.push([e.date, e.humidity])
                 )
+                setColor('rgb(51, 116, 255)')
             }
             if (dataName === 'pressure') {
                 dataWeather.map((e,i)=>
                     prevState.push([e.date, e.pressure])
                 )
+                setColor('rgb(51, 255, 57)')
             }
             setDataTemperature(prevState)
         }
@@ -69,7 +73,7 @@ export default function Graph({dataName}) {
                 </Dropdown.Menu>
             </Dropdown>
 
-            <ChartData data={data}/>
+            <ChartData data={data} fullDate={true} color={color}/>
 
             <CsvExport data={data}/>
 

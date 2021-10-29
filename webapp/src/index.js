@@ -11,6 +11,7 @@ import { ContextProvider } from "./context";
 import "./index.css";
 import "./i18n";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Settings from "./pages/Settings";
 
 const breakPoint = 720;
 
@@ -43,6 +44,7 @@ const Router = () => {
 								<Route path="/temperatures" component={temperatures} exact />
 								<Route path="/humidity" component={Humidity} exact />
 								<Route path="/pressure" component={Pressure} exact />
+								<Route path="/settings" component={Settings} exact />
 							</Switch>
 						</div>
 					</div>

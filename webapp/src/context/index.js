@@ -24,11 +24,11 @@ export const ContextProvider = (props) => {
   const [realTimeData, setRealTimeData] = useState({});
   const optionsDate = { year: 'numeric', month: 'numeric', day: 'numeric', hour:'numeric', minute: 'numeric', second:'numeric'};
 
-  const fetchDataRangeDate = async (dateRange) => {
+  const fetchDataRangeDate = async (dateRange, shouldValBeUsed) => {
     const db = getFirestore(app);
     const q = query(
       collection(db, "meteo"),
-      where("shouldValBeUsed", "==", true),
+      where("shouldValBeUsed", "==", shouldValBeUsed),
       where("dateEpoch", ">=", dateRange + ""),
       orderBy("dateEpoch")
     );
