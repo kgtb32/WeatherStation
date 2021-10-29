@@ -23,7 +23,7 @@ export default function Graph({dataName}) {
     }
 
     useEffect(() => {
-        fetchDataRangeDate(datePicked)
+        fetchDataRangeDate(datePicked, true)
     }, [datePicked])
 
     useEffect(() => {
@@ -69,7 +69,7 @@ export default function Graph({dataName}) {
                 </Dropdown.Menu>
             </Dropdown>
 
-            <ChartData data={data}/>
+            <ChartData data={data} fullDate={true}/>
 
             <CsvExport data={data}/>
 

@@ -2,14 +2,15 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 
-export default function ChartData(data) {
+export default function ChartData({data, fullDate}) {
   
+  const dateFormat = fullDate ? data.data.map(e => e[0]) : data.data.map(e => e[0].split(",")[1])
   const displayData = {
-    labels: data.data.data.map(e => e[0]), // date
+    labels: dateFormat,
     datasets: [
       {
-        label: data.data.label,
-        data: data.data.data.map(e => e[1]), // temperatures
+        label: data.label,
+        data: data.data.map(e => e[1]),
         fill: false,
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgba(255, 99, 132, 0.2)',
