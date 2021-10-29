@@ -11,6 +11,7 @@ export default function HomeGraph({dataName}) {
     } = DataContext()
     
     const [dataTemperature, setDataTemperature] = useState([]);
+    const [color, setColor] = useState();
     
     useEffect(() => {
         const last24h = dayjs().subtract(1, 'day').unix()
@@ -24,16 +25,19 @@ export default function HomeGraph({dataName}) {
                 dataWeather.map((e,i)=>
                     prevState.push([e.date, e.temperature])
                 )
+                setColor('rgb(255, 51, 51)')
             }
             if (dataName === 'humidity') {
                 dataWeather.map((e,i)=>
                     prevState.push([e.date, e.humidity])
                 )
+                setColor('rgb(51, 116, 255)')
             }
             if (dataName === 'pressure') {
                 dataWeather.map((e,i)=>
                     prevState.push([e.date, e.pressure])
                 )
+                setColor('rgb(51, 255, 57)')
             }
             setDataTemperature(prevState)
         }
@@ -47,7 +51,7 @@ export default function HomeGraph({dataName}) {
 
     return(
         <>
-            <ChartData data={data} fullDate={false}/>
+            <ChartData data={data} fullDate={false} color={color}/>
         </>
     )
 

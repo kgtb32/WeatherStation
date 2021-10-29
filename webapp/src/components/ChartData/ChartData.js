@@ -2,7 +2,7 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 
-export default function ChartData({data, fullDate}) {
+export default function ChartData({data, fullDate, color}) {
   
   const dateFormat = fullDate ? data.data.map(e => e[0]) : data.data.map(e => e[0].split(",")[1])
   const displayData = {
@@ -12,8 +12,8 @@ export default function ChartData({data, fullDate}) {
         label: data.label,
         data: data.data.map(e => e[1]),
         fill: false,
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgba(255, 99, 132, 0.2)',
+        backgroundColor: color,
+        borderColor: color,
       },
     ],
   };
