@@ -1,22 +1,10 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 
-import i18n from "../i18n";
-
-function Home() {
-	const { t } = useTranslation();
+export default function Home() {
 
 	return (
-		<div className="w-100">
-			<p
-				onClick={() => {
-					i18n.changeLanguage("en");
-				}}
-			>
-				{t("langName")}
-			</p>
+		<div className="container">
+			coucou
 		</div>
 	);
 }
-
-export default Home;
