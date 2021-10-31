@@ -7,6 +7,9 @@ function Bouttonnavigation(props) {
   const faireRedirection = () =>{ 
     let url = props.url;
     history.push(url)
+    try{
+      props.requestHTTP()
+    }catch(e){console.log("no props requestHTTP")}
   }
 
   return (

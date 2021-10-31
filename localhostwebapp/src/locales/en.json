@@ -5,5 +5,13 @@
       "English":"English",
       "French":"French",
       "Next":"Next"
+  },
+  "Welcome":{
+    "Welcome":"Welcome on WeatherStation",
+    "Location":"Indicate where this weather station should be",
+    "LocationUnique":"Location",
+    "Second":"Data will be sent to the database every x seconds",
+    "SecondUnique":"Second",
+    "Next":"Next"
   }
 }

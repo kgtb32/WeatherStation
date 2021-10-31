@@ -5,6 +5,14 @@
         "English":"Anglais",
         "French":"Français",
         "Next":"Suivant"
-    }
+    },
+    "Welcome":{
+        "Welcome":"Bienvenue sur WeatherStation",
+        "Location":"Indiquez où doit être cette station météo",
+        "LocationUnique":"Localisation",
+        "Second":"Une donnée sera envoyée a la base de donnée toutes les x secondes",
+        "SecondUnique":"Secondes",
+        "Next":"Suivant"
+      }
   }
   
