@@ -7,11 +7,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Welcome from "./pages/Welcome.js";
 import Credential from "./pages/credential.js";
+import Wifi from "./pages/wifi.js";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
+      <Route path="/wifi">
+          <Wifi/>
+        </Route>
         <Route path="/credential">
           <Credential/>
         </Route>

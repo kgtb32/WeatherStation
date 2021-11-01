@@ -13,5 +13,10 @@
     "Second":"Data will be sent to the database every x seconds",
     "SecondUnique":"Second",
     "Next":"Next"
+  },
+  "Credential":{
+    "Credential":"Choose your credential",
+    "Import":"Import my credential",
+    "Next":"Next"
   }
 }

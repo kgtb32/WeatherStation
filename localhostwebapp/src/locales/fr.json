@@ -13,6 +13,11 @@
         "Second":"Une donnée sera envoyée a la base de donnée toutes les x secondes",
         "SecondUnique":"Secondes",
         "Next":"Suivant"
+      },
+      "Credential":{
+        "Credential":"Choisissez vos crédentiel",
+        "Import":"Importer mon crédentiel",
+        "Next":"Suivant"
       }
   }
   
