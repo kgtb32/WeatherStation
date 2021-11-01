@@ -1,0 +1,10 @@
+[Unit]
+Description=Wifi hotspot
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bash /home/pi/WeatherStation/raspbberry/hotspot-wifi/serverMode/run.sh
+
+[Install]
+WantedBy=multi-user.target
