@@ -1,0 +1,10 @@
+[Unit]
+Description=Button Service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/pi/WeatherStation/raspberry/hotspot-wifi/ButtonService.py
+
+[Install]
+WantedBy=multi-user.target
