@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/bash /home/pi/WeatherStation/raspbberry/hotspot-wifi/serverMode/run.sh
+ExecStart=/usr/bin/bash /home/pi/WeatherStation/raspberry/hotspot-wifi/ServerMode/server/run.sh
 
 [Install]
 WantedBy=multi-user.target
