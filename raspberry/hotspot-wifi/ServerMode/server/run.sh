@@ -1,6 +1,6 @@
 #bin/sh
 
-pushd /home/WeatherStation/raspberry/hotspot-wifi/ServerMode/server
+pushd /home/pi/WeatherStation/raspberry/hotspot-wifi/ServerMode/server
 
 sudo flask run
 
