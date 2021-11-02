@@ -1,9 +1,7 @@
 #/bin/bash
-sudo sh deletenmcliconnections.sh
-nmcli device disconnect wlan0
-sudo systemctl disable wpa_supplicant
-sudo systemctl stop wpa_supplicant
-sudo systemctl enable hostspot-wifi
+sudo systemctl stop network-manager
+sudo hotspot start
+sudo ifconfig ap0 10.3.141.1/24
+sudo systemctl restart dnsmasq.service
 sudo systemctl start hotspot-wifi
-sleep 5
-sudo /etc/raspap/hostapd/servicestart.sh
+sudo systemctl enable hotspot-wifi
