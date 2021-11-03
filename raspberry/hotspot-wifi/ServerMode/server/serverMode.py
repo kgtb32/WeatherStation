@@ -1,12 +1,18 @@
 from flask import Flask, render_template, request, jsonify
 from utils.utils import write_file, convert_nmcli_to_obj
 from flask_cors import CORS
+import RPi.GPIO as GPIO 
+import time
 import json
 import subprocess
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(buzzer, GPIO.OUT)
+buzzer = 16
 
 @app.route('/')
 def index():
@@ -35,6 +41,13 @@ def cred_set():
 def wifi_set():
     ssid = request.get_json().get('ssid')
     password = request.get_json().get('password')
+    GPIO.output(buzzer, GPIO.HIGH)
+    time.sleep(0.5)
+    GPIO.output(buzzer, GPIO.LOW)
+    time.sleep(0.5)
+    GPIO.output(buzzer, GPIO.HIGH)
+    time.sleep(0.5)
+    GPIO.output(buzzer, GPIO.LOW)
     subprocess.Popen("sudo mv /home/pi/WeatherStation/raspberry/hotspot-wifi/ServerMode/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf", shell=True)
     subprocess.Popen("sudo cat \"network={\nssid=\""ssid+"\"\npsk=\""+password+"\"\n}", shell=True)
     subprocess.Popen(["sudo sh /home/pi/WeatherStation/raspberry/hotspot-wifi/disableHotspot.sh", ssid, "password", password], shell=True)
