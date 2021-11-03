@@ -1,9 +1,18 @@
 from flask import Flask, render_template, request, jsonify
 from utils.utils import write_file, convert_nmcli_to_obj
+from flask_cors import CORS
+import RPi.GPIO as GPIO 
+import time
 import json
 import subprocess
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(buzzer, GPIO.OUT)
+buzzer = 16
 
 @app.route('/')
 def index():
@@ -11,25 +20,35 @@ def index():
 
 @app.route('/basic/settings/set', methods = ['POST'])
 def basic_settings_set():
-    loc = request.form.get('location')
-    send_interval = request.form.get('send_interval')
-    if(loc == '' or send_interval == ''):
+    loc = request.get_json().get('location')
+    send_interval = request.get_json().get('send_interval')
+    if((loc==None or loc=='') or (send_interval==None or send_interval=='')):
         return jsonify(success=False)
     else:
-        write_file("/tmp/config.json", json.dumps({"location": loc, "interval": send_interval}))
+        write_file("/home/pi/WeatherStation/raspberry/config.json", json.dumps({"location": loc, "interval": send_interval}))
         return jsonify(success=True)
-
-@app.route('/template/upload_credentials')
-def template_upload_credentials():
-    return render_template('template_upload_credentials.html')
 
 @app.route('/cred/set', methods= ['POST'])
 def cred_set():
-    file = request.files['file']
-    file.save("/tmp/credentials.json")
-    return jsonify(success=True)
+    try:
+        file = request.files['file']
+        file.save("/home/pi/WeatherStation/raspberry/credentials.json")
+        return jsonify(success=True)
+    except:
+        return jsonify(success=False)
     
-@app.route('/wifi/list', methods=['GET'])
-def wifi_list():
-    result = subprocess.run("nmcli -c no --fields SSID,SIGNAL,SECURITY, --mode multiline dev wifi list", shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8').split("\n")
-    return jsonify(convert_nmcli_to_obj(result))
+@app.route('/wifi/set', methods=['POST'])
+def wifi_set():
+    ssid = request.get_json().get('ssid')
+    password = request.get_json().get('password')
+    GPIO.output(buzzer, GPIO.HIGH)
+    time.sleep(0.5)
+    GPIO.output(buzzer, GPIO.LOW)
+    time.sleep(0.5)
+    GPIO.output(buzzer, GPIO.HIGH)
+    time.sleep(0.5)
+    GPIO.output(buzzer, GPIO.LOW)
+    subprocess.Popen("sudo mv /home/pi/WeatherStation/raspberry/hotspot-wifi/ServerMode/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf", shell=True)
+    subprocess.Popen("sudo cat \"network={\nssid=\""ssid+"\"\npsk=\""+password+"\"\n}", shell=True)
+    subprocess.Popen(["sudo sh /home/pi/WeatherStation/raspberry/hotspot-wifi/disableHotspot.sh", ssid, "password", password], shell=True)
+    return jsonify(success=True)
