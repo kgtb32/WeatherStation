@@ -10,13 +10,19 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+buzzer = 16
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(buzzer, GPIO.OUT)
-buzzer = 16
+
+
+app.static_folder =  'build/'
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    fref = open(r'build/index.html')
+    html_text = fref.read()
+    fref.close()
+    return html_text
 
 @app.route('/basic/settings/set', methods = ['POST'])
 def basic_settings_set():
@@ -48,7 +54,7 @@ def wifi_set():
     GPIO.output(buzzer, GPIO.HIGH)
     time.sleep(0.5)
     GPIO.output(buzzer, GPIO.LOW)
-    subprocess.Popen("sudo mv /home/pi/WeatherStation/raspberry/hotspot-wifi/ServerMode/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf", shell=True)
-    subprocess.Popen("sudo cat \"network={\nssid=\""ssid+"\"\npsk=\""+password+"\"\n}", shell=True)
+    subprocess.Popen("sudo cp /home/pi/WeatherStation/raspberry/hotspot-wifi/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf", shell=True)
+    subprocess.Popen("sudo echo '\"network={\nssid=\""+ssid+"\"\npsk=\""+password+"\"\n}' >> /etc/wpa_supplicant/wpa_supplicant.conf", shell=True)
     subprocess.Popen(["sudo sh /home/pi/WeatherStation/raspberry/hotspot-wifi/disableHotspot.sh", ssid, "password", password], shell=True)
     return jsonify(success=True)
