@@ -17,7 +17,7 @@ export default function Credential() {
     data.append('file', e.target.files[0]);
     
 
-    axios.post("http://127.0.0.1:5000/cred/set", data, { // receive two parameter endpoint url ,form data 
+    axios.post("http://10.3.141.1/cred/set", data, { // receive two parameter endpoint url ,form data 
       })
       .then(res => { // then print response status
         console.log(res.data)
