@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-
+import coverSun from "../../logo_weather/coverSun-modified.png"
 import Particles from "react-tsparticles";
 import {
 	ProSidebar,
@@ -131,7 +131,10 @@ function Sidebar({ sidebarVisible, setSidebarVisible }) {
 				}}
 			>
 				<SidebarHeader>
-					<h4 className="text-center">Weather Station</h4>
+					<h4 className="text-center">
+						<img src={coverSun} width="30" height="30" className="d-inline-block align-top"/>
+						Weather Station
+					</h4>
 				</SidebarHeader>
 				<SidebarContent>
 					<Menu iconShape="circle">
