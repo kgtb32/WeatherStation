@@ -24,5 +24,10 @@
     "Next":"Next",
     "Password":"Password",
     "Name":"Wifi name"
+  },
+  "Doc":{
+    "Doc":"Your weather station is connected",
+    "Documentation":"Find the WeatherStation documentation",
+    "Git":"WeathStation Documentation"
   }
 }

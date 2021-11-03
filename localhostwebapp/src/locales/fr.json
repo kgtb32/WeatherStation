@@ -15,8 +15,8 @@
         "Next":"Suivant"
       },
       "Credential":{
-        "Credential":"Choisissez vos crédentiel",
-        "Import":"Importer mon crédentiel",
+        "Credential":"Choisissez vos crédential",
+        "Import":"Importer mon crédential",
         "Next":"Suivant"
       },
       "Wifi":{
@@ -24,6 +24,11 @@
         "Next":"Suivant",
         "Password":"Mot de passe",
         "Name":"Nom du wifi"
+      },
+      "Doc":{
+        "Doc":"Votre station météo est connectée",
+        "Documentation":"Retrouvez la documentation de WeatherStation",
+        "Git":"Documentation de WeathStation"
       }
   }
   

@@ -4,9 +4,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
-import ListGroup from "react-bootstrap/ListGroup";
-import i18n from "../i18n";
 import { useTranslation } from "react-i18next";
 import Bouttonnavigation from "../component/bouttonnavigation.js"
 
