@@ -10,6 +10,7 @@
   },
   "Welcome":{
     "Welcome":"Welcome on WeatherStation",
+    "config": "Weather station configuration",
     "Location":"Indicate where this weather station should be",
     "LocationUnique":"Location",
     "Second":"Data will be sent to the database every x seconds",
