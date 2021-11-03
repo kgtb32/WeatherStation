@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ChartData from "./ChartData/ChartData";
+import ChartDataMultiAxis from "./ChartData/ChartDataMultiAxis"
 import { DataContext } from "../context";
 import dayjs from "dayjs";
 
@@ -51,7 +52,8 @@ export default function HomeGraph({dataName}) {
 
     return(
         <>
-            <ChartData data={data} fullDate={false} color={color}/>
+            {/* <ChartData data={data} fullDate={false} color={color}/> */}
+            <ChartDataMultiAxis data={dataWeather ?? []} />
         </>
     )
 

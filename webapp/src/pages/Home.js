@@ -6,7 +6,7 @@ export default function Home() {
 
 	return (
 		<>
-			<Container>
+			{/* <Container>
 				<Row>
 					<Col md={6}><HomeGraph dataName="temperature"/></Col>
     				<Col md={6}><HomeGraph  dataName="pressure"/></Col>
@@ -14,6 +14,9 @@ export default function Home() {
   				<Row>
     				<Col md={{ span: 6, offset: 3 }}><HomeGraph  dataName="humidity"/></Col>
   				</Row>
+			</Container> */}
+			<Container>
+				<HomeGraph />
 			</Container>
 		</>
 	);
