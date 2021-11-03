@@ -59,7 +59,7 @@ export default function Wifi() {
          
             
             <Container style={{ backgroundColor: "lightgray" }}>
-            <p style={{fontWeight: "500",color: "black"}}>{t("Wifi.Wifi")}</p>
+            <p style={{fontWeight: "500",color: "black"}}>{t("Wifi.Name")}</p>
               <InputGroup className="mb-3" onChange={(e) => {wifinameText(e)}}>
                 <FormControl
                   placeholder={t("Wifi.Name")}

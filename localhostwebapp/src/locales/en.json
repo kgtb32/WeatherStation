@@ -22,10 +22,10 @@
     "Next":"Next"
   },
   "Wifi":{
-    "Wifi":"Wifi",
+    "Wifi":"Wifi configuration",
     "Next":"Next",
     "Password":"Password",
-    "Name":"Wifi name"
+    "Name":"Wifi network name"
   },
   "Doc":{
     "Doc":"Your weather station is connected",
