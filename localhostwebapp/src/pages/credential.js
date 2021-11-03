@@ -1,10 +1,12 @@
 import React from 'react';
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+
+import { FormControl, Col, Row, Container } from 'react-bootstrap';
+
 import { useTranslation } from "react-i18next";
 import Bouttonnavigation from "../component/bouttonnavigation.js"
 import axios from 'axios';
+
+import imgCredentials from '../assets/database.svg'
 
 export default function Credential() {
   const { t } = useTranslation();
@@ -31,17 +33,21 @@ export default function Credential() {
               display: "flex",
               alignContent: "space-around",
               flexWrap: "wrap",
-              flexDirection: "column",
+              flexDirection: "row",
               justifyContent: "space-evenly",
               alignItems: "stretch",
-              height: "100vh",
             }}
           >
-          <Container><h1 style={{fontWeight: "500",color: "black"}}>{t("Credential.Credential")}</h1></Container>
+          <Container className="text-center py-3">
+            <h1 style={{fontWeight: "500",color: "black"}}>{t("Credential.Credential")}</h1>
+            <img src={imgCredentials} alt="" className="w-50 h-auto mx-auto d-flex py-5"/>
+            <p>{t('Credential.desc')}</p>
+            <a href="">{t('Credential.howToGenerate')}</a>
+          </Container>
          
-            <Container style={{ backgroundColor: "lightgray" }}>
+            <Container style={{ backgroundColor: "lightgray" }} className="py-5 my-4 rounded ">
             <p style={{fontWeight: "500",color: "black"}}>{t("Credential.Import")}</p>
-            <input type="file" name="file" onChange={(e)=>onChange(e)}/>
+            <FormControl type="file" name="file" onChange={(e)=>onChange(e)}/>
             </Container>
             <Container style={{display: "flex",justifyContent: "flex-end"}}>
             <Bouttonnavigation url="/wifi" text={t("Welcome.Next")}></Bouttonnavigation>

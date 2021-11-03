@@ -18,8 +18,10 @@
     "Next":"Next"
   },
   "Credential":{
-    "Credential":"Choose your credential",
-    "Import":"Import my credential",
+    "Credential":"Database configuration",
+    "Import":"Import generated credentials.json",
+    "desc": "Enter in this page, the credentials.json file generated from firebase.",
+    "howToGenerate": "Need help to generate it?",
     "Next":"Next"
   },
   "Wifi":{

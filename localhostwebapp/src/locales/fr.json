@@ -18,8 +18,10 @@
         "Next":"Suivant"
       },
       "Credential":{
-        "Credential":"Choisissez vos crédential",
-        "Import":"Importer mon crédential",
+        "Credential":"Configuration de la base de données",
+        "desc": "Entrez sur cette page le credentials.json généré depuis Firebase.",
+        "howToGenerate": "Besoin d'aide pour le générer ?",
+        "Import":"Mise en ligne du credentials.json généré",
         "Next":"Suivant"
       },
       "Wifi":{
