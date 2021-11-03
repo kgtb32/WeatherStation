@@ -1,0 +1,34 @@
+{
+    "langName": "en",
+    "Home": {
+        "Language":"Langue",
+        "English":"Anglais",
+        "French":"Français",
+        "Next":"Suivant"
+    },
+    "Welcome":{
+        "Welcome":"Bienvenue sur WeatherStation",
+        "Location":"Indiquez où doit être cette station météo",
+        "LocationUnique":"Localisation",
+        "Second":"Une donnée sera envoyée a la base de donnée toutes les x secondes",
+        "SecondUnique":"Secondes",
+        "Next":"Suivant"
+      },
+      "Credential":{
+        "Credential":"Choisissez vos crédential",
+        "Import":"Importer mon crédential",
+        "Next":"Suivant"
+      },
+      "Wifi":{
+        "Wifi":"Wifi",
+        "Next":"Suivant",
+        "Password":"Mot de passe",
+        "Name":"Nom du wifi"
+      },
+      "Doc":{
+        "Doc":"Votre station météo est connectée",
+        "Documentation":"Retrouvez la documentation de WeatherStation",
+        "Git":"Documentation de WeathStation"
+      }
+  }
+  

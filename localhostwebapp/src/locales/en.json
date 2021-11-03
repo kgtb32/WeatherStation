@@ -1,0 +1,33 @@
+{
+  "langName": "en",
+  "Home": {
+      "Language":"Language",
+      "English":"English",
+      "French":"French",
+      "Next":"Next"
+  },
+  "Welcome":{
+    "Welcome":"Welcome on WeatherStation",
+    "Location":"Indicate where this weather station should be",
+    "LocationUnique":"Location",
+    "Second":"Data will be sent to the database every x seconds",
+    "SecondUnique":"Second",
+    "Next":"Next"
+  },
+  "Credential":{
+    "Credential":"Choose your credential",
+    "Import":"Import my credential",
+    "Next":"Next"
+  },
+  "Wifi":{
+    "Wifi":"Wifi",
+    "Next":"Next",
+    "Password":"Password",
+    "Name":"Wifi name"
+  },
+  "Doc":{
+    "Doc":"Your weather station is connected",
+    "Documentation":"Find the WeatherStation documentation",
+    "Git":"WeathStation Documentation"
+  }
+}
