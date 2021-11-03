@@ -58,8 +58,8 @@ export default function Welcome() {
           >
           <Container><h1 style={{fontWeight: "500",color: "black"}}>{t("Welcome.Welcome")}</h1></Container>
          
-            <Container style={{ backgroundColor: "brown" }}>
-            <p style={{fontWeight: "500",color: "#ffff"}}>{t("Welcome.Location")}</p>
+            <Container style={{ backgroundColor: "lightgray" }}>
+            <p style={{fontWeight: "500",color: "black"}}>{t("Welcome.Location")}</p>
               <InputGroup className="mb-3" onChange={(e) => {localisationText(e)}}>
                 <FormControl
                   placeholder={t("Welcome.LocationUnique")}
@@ -67,7 +67,7 @@ export default function Welcome() {
                   aria-describedby="basic-addon1"
                 />
               </InputGroup>
-              <p style={{fontWeight: "500",color: "#ffff"}}>{t("Welcome.Second")}</p>
+              <p style={{fontWeight: "500",color: "black"}}>{t("Welcome.Second")}</p>
               <InputGroup className="mb-3" onChange={(e) => {secondText(e)}}>
                 <FormControl
                   placeholder={t("Welcome.SecondUnique")}

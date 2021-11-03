@@ -40,8 +40,8 @@ export default function Credential() {
           >
           <Container><h1 style={{fontWeight: "500",color: "black"}}>{t("Credential.Credential")}</h1></Container>
          
-            <Container style={{ backgroundColor: "brown" }}>
-            <p style={{fontWeight: "500",color: "#ffff"}}>{t("Credential.Import")}</p>
+            <Container style={{ backgroundColor: "lightgray" }}>
+            <p style={{fontWeight: "500",color: "black"}}>{t("Credential.Import")}</p>
             <input type="file" name="file" onChange={(e)=>onChange(e)}/>
             </Container>
             <Container style={{display: "flex",justifyContent: "flex-end"}}>

@@ -8,16 +8,20 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Welcome from "./pages/Welcome.js";
 import Credential from "./pages/credential.js";
 import Wifi from "./pages/wifi.js";
+import Doc from "./pages/doc.js";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-      <Route path="/wifi">
-          <Wifi/>
+        <Route path="/doc">
+          <Doc />
+        </Route>
+        <Route path="/wifi">
+          <Wifi />
         </Route>
         <Route path="/credential">
-          <Credential/>
+          <Credential />
         </Route>
         <Route path="/welcome">
           <Welcome />

@@ -18,6 +18,12 @@
         "Credential":"Choisissez vos crédentiel",
         "Import":"Importer mon crédentiel",
         "Next":"Suivant"
+      },
+      "Wifi":{
+        "Wifi":"Wifi",
+        "Next":"Suivant",
+        "Password":"Mot de passe",
+        "Name":"Nom du wifi"
       }
   }
   

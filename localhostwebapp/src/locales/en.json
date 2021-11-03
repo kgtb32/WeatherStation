@@ -18,5 +18,11 @@
     "Credential":"Choose your credential",
     "Import":"Import my credential",
     "Next":"Next"
+  },
+  "Wifi":{
+    "Wifi":"Wifi",
+    "Next":"Next",
+    "Password":"Password",
+    "Name":"Wifi name"
   }
 }
