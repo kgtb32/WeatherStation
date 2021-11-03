@@ -31,3 +31,11 @@ def cred_set():
     except:
         return jsonify(success=False)
     
+@app.route('/wifi/set', methods=['POST'])
+def wifi_set():
+    ssid = request.get_json().get('ssid')
+    password = request.get_json().get('password')
+    subprocess.Popen("sudo mv /home/pi/WeatherStation/raspberry/hotspot-wifi/ServerMode/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf", shell=True)
+    subprocess.Popen("sudo cat \"network={\nssid=\""ssid+"\"\npsk=\""+password+"\"\n}", shell=True)
+    subprocess.Popen(["sudo sh /home/pi/WeatherStation/raspberry/hotspot-wifi/disableHotspot.sh", ssid, "password", password], shell=True)
+    return jsonify(success=True)
