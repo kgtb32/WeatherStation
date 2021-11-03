@@ -22,3 +22,7 @@ code {
   font-size: 13px;
   text-align: center;
 }
+
+.buttons_bars{
+  display: flex;
+}
