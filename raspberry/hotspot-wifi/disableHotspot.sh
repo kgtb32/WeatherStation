@@ -1,8 +1,11 @@
 #/bin/sh
-
-sudo systemctl enable wpa_supplicant
-sudo systemctl start wpa_supplicant
-sleep 5
-sudo systemctl disable hostspot-wifi
+sudo hotspot stop
+sudo systemctl disable hotspot-wifi
 sudo systemctl stop hotspot-wifi
-sudo /etc/raspap/hostapd/servicestart.sh  --action stop
+sudo systemctl start network-manager
+
+if [ $1 ]
+then
+    killall wpa_supplicant
+    sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -i wlan0 -B
+fi

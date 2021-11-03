@@ -24,11 +24,11 @@ while True:
         GPIO.output(buzzer, GPIO.HIGH)
         time.sleep(0.5)
         GPIO.output(buzzer, GPIO.LOW)
-        subprocess.Popen("sudo sh /home/pi/enableHotspot.sh", shell=True)
+        subprocess.Popen("sudo sh /home/pi/WeatherStation/raspberry/enableHotspot.sh", shell=True)
     if GPIO.input(reset) == GPIO.HIGH:
         print("reset")
         GPIO.output(buzzer, GPIO.HIGH)
         time.sleep(1)
         GPIO.output(buzzer, GPIO.LOW)
-        subprocess.Popen("sudo sh /home/pi/enableHotspot.sh", shell=True)
+        subprocess.Popen("sudo sh /home/pi/WeatherStation/raspberry/enableHotspot.sh", shell=True)
     time.sleep(1)
