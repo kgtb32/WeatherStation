@@ -2,6 +2,7 @@
   "langName": "en",
   "localizedLangName": "English",
   "Home": {
+      "lang_select": "Please select your language",
       "Language":"Language",
       "English":"English",
       "French":"French",

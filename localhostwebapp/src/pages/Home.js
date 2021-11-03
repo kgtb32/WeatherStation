@@ -16,6 +16,8 @@ export default function Home() {
     <div>
       <div className="text-black">
       	<img src={logo} className="App-logo" alt="logo" />
+      		<h2>{t('Welcome.Welcome')}</h2>
+          <p className="text-black">{t('Home.lang_select')}</p>
       </div>
       <Dropdown className="my-2">
 		<Dropdown.Toggle>
