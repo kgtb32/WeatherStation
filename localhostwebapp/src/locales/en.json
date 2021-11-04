@@ -1,6 +1,8 @@
 {
   "langName": "en",
+  "localizedLangName": "English",
   "Home": {
+      "lang_select": "Please select your language",
       "Language":"Language",
       "English":"English",
       "French":"French",
@@ -8,6 +10,7 @@
   },
   "Welcome":{
     "Welcome":"Welcome on WeatherStation",
+    "config": "Weather station configuration",
     "Location":"Indicate where this weather station should be",
     "LocationUnique":"Location",
     "Second":"Data will be sent to the database every x seconds",
@@ -15,18 +18,21 @@
     "Next":"Next"
   },
   "Credential":{
-    "Credential":"Choose your credential",
-    "Import":"Import my credential",
+    "Credential":"Database configuration",
+    "Import":"Import generated credentials.json",
+    "desc": "Enter in this page, the credentials.json file generated from firebase.",
+    "howToGenerate": "Need help to generate it?",
     "Next":"Next"
   },
   "Wifi":{
-    "Wifi":"Wifi",
+    "Wifi":"Wifi configuration",
     "Next":"Next",
     "Password":"Password",
-    "Name":"Wifi name"
+    "Name":"Wifi network name"
   },
   "Doc":{
     "Doc":"Your weather station is connected",
+    "desc": "Your Weather Station is now gonna connect to internet to send first data. You made a mistake ? you forgot something ? you can press the button inside your weather station to access to this page again.",
     "Documentation":"Find the WeatherStation documentation",
     "Git":"WeathStation Documentation"
   }

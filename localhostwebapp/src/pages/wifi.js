@@ -1,11 +1,11 @@
 import { React, useState } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
 import { useTranslation } from "react-i18next";
+
+import { Container, Col, Row, InputGroup, Form } from 'react-bootstrap'
+
 import Bouttonnavigation from "../component/bouttonnavigation.js"
+
+import imgWifi from '../assets/wifi.svg'
 
 export default function Wifi() {
   const { t } = useTranslation();
@@ -49,19 +49,19 @@ export default function Wifi() {
               display: "flex",
               alignContent: "space-around",
               flexWrap: "wrap",
-              flexDirection: "column",
+              flexDirection: "row",
               justifyContent: "space-evenly",
               alignItems: "stretch",
-              height: "100vh",
             }}
           >
-          <Container><h1 style={{fontWeight: "500",color: "black"}}>{t("Wifi.Wifi")}</h1></Container>
-         
-            
-            <Container style={{ backgroundColor: "lightgray" }}>
-            <p style={{fontWeight: "500",color: "black"}}>{t("Wifi.Wifi")}</p>
+          <Container className="text-center">
+            <h1 style={{fontWeight: "500",color: "black"}}>{t("Wifi.Wifi")}</h1>
+            <img src={imgWifi} alt="" className="w-50 h-auto mx-auto d-flex py-5"/>
+          </Container>           
+            <Container style={{ backgroundColor: "lightgray" }} className="py-3 my-4 rounded">
+            <p style={{fontWeight: "500",color: "black"}}>{t("Wifi.Name")}</p>
               <InputGroup className="mb-3" onChange={(e) => {wifinameText(e)}}>
-                <FormControl
+                <Form.Control
                   placeholder={t("Wifi.Name")}
                   aria-label="Localisation"
                   aria-describedby="basic-addon1"
@@ -69,7 +69,7 @@ export default function Wifi() {
               </InputGroup>
               <p style={{fontWeight: "500",color: "black"}}>{t("Wifi.Password")}</p>
               <InputGroup className="mb-3" onChange={(e) => {passwordText(e)}}>
-                <FormControl
+                <Form.Control
                   placeholder={t("Wifi.Password")}
                   aria-label="Seconde"
                   aria-describedby="basic-addon1"

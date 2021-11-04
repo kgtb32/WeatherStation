@@ -7,6 +7,8 @@ import FormControl from "react-bootstrap/FormControl";
 import { useTranslation } from "react-i18next";
 import Bouttonnavigation from "../component/bouttonnavigation.js"
 
+import imgSettings from '../assets/settings.svg'
+
 export default function Welcome() {
   const { t } = useTranslation();
   const [second, setSecond] = useState("");
@@ -48,14 +50,15 @@ export default function Welcome() {
               display: "flex",
               alignContent: "space-around",
               flexWrap: "wrap",
-              flexDirection: "column",
+              flexDirection: "row",
               justifyContent: "space-evenly",
               alignItems: "stretch",
-              height: "100vh",
             }}
           >
-          <Container><h1 style={{fontWeight: "500",color: "black"}}>{t("Welcome.Welcome")}</h1></Container>
-         
+          <Container>
+            <h1 className="text-center" style={{fontWeight: "500",color: "black"}}>{t("Welcome.config")}</h1>
+            <img className="w-50 h-auto mx-auto d-flex py-5" src={imgSettings} alt="" />
+          </Container>
             <Container style={{ backgroundColor: "lightgray" }}>
             <p style={{fontWeight: "500",color: "black"}}>{t("Welcome.Location")}</p>
               <InputGroup className="mb-3" onChange={(e) => {localisationText(e)}}>

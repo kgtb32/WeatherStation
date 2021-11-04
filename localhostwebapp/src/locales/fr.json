@@ -1,6 +1,8 @@
 {
     "langName": "en",
+    "localizedLangName": "Français",
     "Home": {
+        "lang_select": "Veuillez sélectionner votre langue.",
         "Language":"Langue",
         "English":"Anglais",
         "French":"Français",
@@ -8,6 +10,7 @@
     },
     "Welcome":{
         "Welcome":"Bienvenue sur WeatherStation",
+        "config": "Configuration de la station météo",
         "Location":"Indiquez où doit être cette station météo",
         "LocationUnique":"Localisation",
         "Second":"Une donnée sera envoyée a la base de donnée toutes les x secondes",
@@ -15,18 +18,21 @@
         "Next":"Suivant"
       },
       "Credential":{
-        "Credential":"Choisissez vos crédential",
-        "Import":"Importer mon crédential",
+        "Credential":"Configuration de la base de données",
+        "desc": "Entrez sur cette page le credentials.json généré depuis Firebase.",
+        "howToGenerate": "Besoin d'aide pour le générer ?",
+        "Import":"Mise en ligne du credentials.json généré",
         "Next":"Suivant"
       },
       "Wifi":{
-        "Wifi":"Wifi",
+        "Wifi":"Configuration Wifi",
         "Next":"Suivant",
         "Password":"Mot de passe",
         "Name":"Nom du wifi"
       },
       "Doc":{
         "Doc":"Votre station météo est connectée",
+        "desc": "Votre station météo va maintenant se connecter à internet et envoyer ses premières informations. Une erreur, un oubli ? vous pouvez à tout moment appuyer sur le bouton situé à l'interieur de votre station météo pour accéder de nouveau à cette page.",
         "Documentation":"Retrouvez la documentation de WeatherStation",
         "Git":"Documentation de WeathStation"
       }
