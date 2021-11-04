@@ -1,8 +1,9 @@
 import React from 'react';
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { useTranslation } from "react-i18next";
+
+import { Container, Row, Col } from 'react-bootstrap'
+
+import imgDone from '../assets/done.svg'
 
 export default function Doc() {
   const { t } = useTranslation();
@@ -16,18 +17,21 @@ export default function Doc() {
               display: "flex",
               alignContent: "space-around",
               flexWrap: "wrap",
-              flexDirection: "column",
+              flexDirection: "row",
               justifyContent: "space-evenly",
               alignItems: "stretch",
               height: "100vh",
             }}
           >
-          <Container><h1 style={{fontWeight: "500",color: "#6dcc67"}}>{t("Doc.Doc")}</h1></Container>
-         
-            <Container style={{ backgroundColor: "lightgray" }}>
+          <Container className="text-center">
+            <img src={imgDone} alt="" className="w-50 h-auto mx-auto d-flex py-5"/>
+            <h1 style={{fontWeight: "500"}} >{t("Doc.Doc")}</h1>
+            <p>{t('Doc.desc')}</p>
+          </Container>
+          <Container style={{ backgroundColor: "lightgray" }} className="py-3 my-4 rounded text-center">
             <p style={{fontWeight: "500",color: "black"}}>{t("Doc.Documentation")}</p>
             <a href="https://github.com/kgtb32/WeatherStation/wiki/Installation-software">{t("Doc.Git")}</a>
-            </Container>
+          </Container>
           </Col>
         </Row>
       </Container>

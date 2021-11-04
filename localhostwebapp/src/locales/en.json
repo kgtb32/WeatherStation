@@ -32,6 +32,7 @@
   },
   "Doc":{
     "Doc":"Your weather station is connected",
+    "desc": "Your Weather Station is now gonna connect to internet to send first data. You made a mistake ? you forgot something ? you can press the button inside your weather station to access to this page again.",
     "Documentation":"Find the WeatherStation documentation",
     "Git":"WeathStation Documentation"
   }

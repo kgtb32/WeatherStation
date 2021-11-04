@@ -32,6 +32,7 @@
       },
       "Doc":{
         "Doc":"Votre station météo est connectée",
+        "desc": "Votre station météo va maintenant se connecter à internet et envoyer ses premières informations. Une erreur, un oubli ? vous pouvez à tout moment appuyer sur le bouton situé à l'interieur de votre station météo pour accéder de nouveau à cette page.",
         "Documentation":"Retrouvez la documentation de WeatherStation",
         "Git":"Documentation de WeathStation"
       }
