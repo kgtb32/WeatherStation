@@ -9,9 +9,11 @@ import Welcome from "./pages/Welcome.js";
 import Credential from "./pages/credential.js";
 import Wifi from "./pages/wifi.js";
 import Doc from "./pages/doc.js";
+import toast, { Toaster } from 'react-hot-toast';
 
 ReactDOM.render(
   <React.StrictMode>
+  <Toaster/>
     <Router>
       <Switch>
         <Route path="/doc">

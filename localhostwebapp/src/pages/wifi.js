@@ -1,5 +1,6 @@
-import { React, useState } from "react";
+import { React, useState,useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import toast, { Toaster } from 'react-hot-toast';
 
 import { Container, Col, Row, InputGroup, Form } from 'react-bootstrap'
 
@@ -42,6 +43,10 @@ export default function Wifi() {
     else{console.log("no fetch")}
   }
 
+  useEffect(() => {
+    toast.error("Une erreur est arrivée");
+  }, [])
+
   return (
     <div>
       <Container style={{ backgroundColor: "chocolate" }}>
@@ -59,6 +64,7 @@ export default function Wifi() {
           >
           <Container className="text-center">
             <h1 style={{fontWeight: "500",color: "black"}}>{t("Wifi.Wifi")}</h1>
+            <div><Toaster/></div>
             <img src={imgWifi} alt="" className="w-50 h-auto mx-auto d-flex py-5"/>
           </Container>           
             <Container style={{ backgroundColor: "lightgray" }} className="py-3 my-4 rounded">
