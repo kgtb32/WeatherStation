@@ -55,6 +55,6 @@ def wifi_set():
     time.sleep(0.5)
     GPIO.output(buzzer, GPIO.LOW)
     subprocess.Popen("sudo cp /home/pi/WeatherStation/raspberry/hotspot-wifi/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf", shell=True)
-    subprocess.Popen("sudo echo '\"network={\nssid=\""+ssid+"\"\npsk=\""+password+"\"\n}' >> /etc/wpa_supplicant/wpa_supplicant.conf", shell=True)
+    subprocess.Popen("sudo echo 'network={\nssid=\""+ssid+"\"\npsk=\""+password+"\"\n}' >> /etc/wpa_supplicant/wpa_supplicant.conf", shell=True)
     subprocess.Popen(["sudo sh /home/pi/WeatherStation/raspberry/hotspot-wifi/disableHotspot.sh", ssid, "password", password], shell=True)
     return jsonify(success=True)
