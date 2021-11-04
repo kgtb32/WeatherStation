@@ -33,7 +33,7 @@ export default function Wifi() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ssid: wifiname,password:password })
     };
-    fetch('http://127.0.0.1:5000/wifi/set', requestOptions)
+    fetch('http://10.3.141.1/wifi/set', requestOptions)
         .then(response => response.json())
         .then(data => console.log(data))
         .catch((error) => {

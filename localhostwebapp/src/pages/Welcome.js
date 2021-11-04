@@ -33,7 +33,7 @@ export default function Welcome() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ location: localisation,send_interval:second })
     };
-    fetch('http://127.0.0.1:5000/basic/settings/set', requestOptions)
+    fetch('http://10.3.141.1/basic/settings/set', requestOptions)
         .then(response => response.json())
         .then(data => console.log(data))
         .catch((error) => {
