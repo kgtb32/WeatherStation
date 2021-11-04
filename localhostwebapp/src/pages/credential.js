@@ -20,7 +20,9 @@ export default function Credential() {
       })
       .then(res => { // then print response status
         console.log(res.data)
-      })
+      }).catch((error) => {
+        console.log("HTTP request error");
+      });
   }
 
   return (

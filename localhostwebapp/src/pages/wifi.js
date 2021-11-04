@@ -34,7 +34,10 @@ export default function Wifi() {
     };
     fetch('http://127.0.0.1:5000/wifi/set', requestOptions)
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => console.log(data))
+        .catch((error) => {
+          console.log("HTTP request error");
+        });
     }
     else{console.log("no fetch")}
   }
