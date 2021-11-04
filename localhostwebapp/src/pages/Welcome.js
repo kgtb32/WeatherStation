@@ -35,7 +35,10 @@ export default function Welcome() {
     };
     fetch('http://127.0.0.1:5000/basic/settings/set', requestOptions)
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => console.log(data))
+        .catch((error) => {
+          console.log("HTTP request error");
+        });
     }
     else{console.log("no fetch")}
   }

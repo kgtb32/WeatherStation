@@ -1,5 +1,6 @@
-import { React, useState } from "react";
+import { React, useState,useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import toast, { Toaster } from 'react-hot-toast';
 
 import { Container, Col, Row, InputGroup, Form } from 'react-bootstrap'
 
@@ -34,10 +35,17 @@ export default function Wifi() {
     };
     fetch('http://127.0.0.1:5000/wifi/set', requestOptions)
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => console.log(data))
+        .catch((error) => {
+          console.log("HTTP request error");
+        });
     }
     else{console.log("no fetch")}
   }
+
+  useEffect(() => {
+    toast.error("Une erreur est arrivée");
+  }, [])
 
   return (
     <div>
@@ -56,6 +64,7 @@ export default function Wifi() {
           >
           <Container className="text-center">
             <h1 style={{fontWeight: "500",color: "black"}}>{t("Wifi.Wifi")}</h1>
+            <div><Toaster/></div>
             <img src={imgWifi} alt="" className="w-50 h-auto mx-auto d-flex py-5"/>
           </Container>           
             <Container style={{ backgroundColor: "lightgray" }} className="py-3 my-4 rounded">

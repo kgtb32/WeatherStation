@@ -1,10 +1,11 @@
-import React from 'react';
+import { React,useEffect } from 'react';
 
 import { FormControl, Col, Row, Container } from 'react-bootstrap';
 
 import { useTranslation } from "react-i18next";
 import Bouttonnavigation from "../component/bouttonnavigation.js"
 import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 
 import imgCredentials from '../assets/database.svg'
 
@@ -20,8 +21,14 @@ export default function Credential() {
       })
       .then(res => { // then print response status
         console.log(res.data)
-      })
+      }).catch((error) => {
+        console.log("HTTP request error");
+      });
   }
+
+  useEffect(() => {
+    toast.error("Une erreur est arrivée");
+  }, [])
 
   return (
     <div>
@@ -40,6 +47,7 @@ export default function Credential() {
           >
           <Container className="text-center py-3">
             <h1 style={{fontWeight: "500",color: "black"}}>{t("Credential.Credential")}</h1>
+            <div><Toaster/></div>
             <img src={imgCredentials} alt="" className="w-50 h-auto mx-auto d-flex py-5"/>
             <p>{t('Credential.desc')}</p>
             <a href="">{t('Credential.howToGenerate')}</a>
