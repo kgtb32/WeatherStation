@@ -12,7 +12,7 @@ export default function Graph({dataName}) {
         dataWeather
     } = DataContext()
     
-    const [dataTemperature, setDataTemperature] = useState([]);
+    const [dataGraph, setDataGraph] = useState([]);
     const [buttonDate, setButtonDate] = useState("Dernières 24 heures");
     const [datePicked, setDatePicked] = useState(dayjs().subtract(1, 'day').unix());
     const [color, setColor] = useState();
@@ -48,14 +48,14 @@ export default function Graph({dataName}) {
                 )
                 setColor('rgb(51, 255, 57)')
             }
-            setDataTemperature(prevState)
+            setDataGraph(prevState)
         }
     }, [dataWeather])
     
     const data = 
     {
         label: dataName,
-        data: dataTemperature
+        data: dataGraph
     }
 
     return(

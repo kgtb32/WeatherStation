@@ -139,7 +139,7 @@ function Sidebar({ sidebarVisible, setSidebarVisible }) {
 				<SidebarContent>
 					<Menu iconShape="circle">
 						<MenuItem icon={<IoIcons.IoMdHome />}>
-							Acceuil
+							Accueil
 							<Link to="/" />
 						</MenuItem>
 						<SubMenu title="Historique" icon={<IoIcons.IoMdTime />}>
@@ -158,14 +158,14 @@ function Sidebar({ sidebarVisible, setSidebarVisible }) {
 						</SubMenu>
 					</Menu>
 				</SidebarContent>
-				<SidebarFooter>
+				{/* <SidebarFooter>
 					<Menu iconShape="circle">
 						<MenuItem icon={<IoIcons.IoMdSettings />}>
 							Paramètres
 							<Link to="/settings" />
 						</MenuItem>
 					</Menu>
-				</SidebarFooter>
+				</SidebarFooter> */}
 			</JoliProSidebar>
 		</div>
 	);
