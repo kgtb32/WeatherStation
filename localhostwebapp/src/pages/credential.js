@@ -50,7 +50,7 @@ export default function Credential() {
             <div><Toaster/></div>
             <img src={imgCredentials} alt="" className="w-50 h-auto mx-auto d-flex py-5"/>
             <p>{t('Credential.desc')}</p>
-            <a href="">{t('Credential.howToGenerate')}</a>
+            <a href="https://github.com/kgtb32/WeatherStation/wiki/Credentials-json">{t('Credential.howToGenerate')}</a>
           </Container>
          
             <Container style={{ backgroundColor: "lightgray" }} className="py-5 my-4 rounded ">

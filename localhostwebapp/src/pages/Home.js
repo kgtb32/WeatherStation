@@ -21,7 +21,7 @@ export default function Home() {
       </div>
       <Dropdown className="my-2">
 		<Dropdown.Toggle>
-			{t('langName') ?? 'en' == 'fr' ? <IconFlagFR /> : <IconFlagUK />}
+			{t('langName') === 'fr' ? <IconFlagFR /> : <IconFlagUK />}
 			<p className="mx-1 d-inline">{t("localizedLangName")}</p>
 		</Dropdown.Toggle>
 		<Dropdown.Menu>
