@@ -40,9 +40,9 @@ export const ContextProvider = (props) => {
         const stringDate = convertDate.$d
         const frenchDate = stringDate.toLocaleDateString('fr-FR', optionsDate)
         newState.push({
-          humidity: value.humidity,
-          pressure: value.pressure,
-          temperature: value.temperature,
+          humidity: value.humidity.toFixed(1),
+          pressure: value.pressure.toFixed(1),
+          temperature: value.temperature.toFixed(1),
           date: frenchDate,
         });
       });
@@ -64,9 +64,9 @@ export const ContextProvider = (props) => {
         const stringDate = convertDate.$d
         const frenchDate = stringDate.toLocaleDateString('fr-FR', optionsDate)
         setRealTimeData({
-          humidity: value.humidity,
-          pressure: value.pressure,
-          temperature: value.temperature,
+          humidity: value.humidity.toFixed(1),
+          pressure: value.pressure.toFixed(1),
+          temperature: value.temperature.toFixed(1),
           date: frenchDate,
         })
       });
